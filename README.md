@@ -11,7 +11,7 @@ Created with [Create React App](https://github.com/facebook/create-react-app).
   - line 21: Set initial state to `null` to reduce the third(unneccessary) state `undefined`
   - line 56: Remove this line since at line 57 `setOpen(true)` is executed anyhow.
 - Starred.jsx
-  - line 28: No need to use `<foot>` tag to wrap a button. [Ref](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
+  - line 28: No need to use `<footer>` tag to wrap a button. [Ref](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
 
 ## Available Scripts
 
