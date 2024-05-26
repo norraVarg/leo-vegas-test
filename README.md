@@ -4,6 +4,10 @@ React + Redux + RTK + Bootstrap application that fetches movies from [https://ww
 
 Created with [Create React App](https://github.com/facebook/create-react-app).
 
+## Code Review
+- constants.js file
+  - line 3 and line 4: Remove '/' between 'movie' and '?' to solve 404 issue for the GET request.
+
 ## Available Scripts
 
 In the project directory, you can run:
