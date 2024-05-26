@@ -8,6 +8,7 @@ Created with [Create React App](https://github.com/facebook/create-react-app).
 - constants.js
   - line 3 and line 4: Remove '/' between 'movie' and '?' to solve 404 issue for the GET request.
 - App.js
+  - line 21: Set initial state to `null` to reduce the third(unneccessary) state `undefined`
   - line 56: Remove this line since at line 57 `setOpen(true)` is executed anyhow.
 
 ## Available Scripts
