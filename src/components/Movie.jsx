@@ -4,8 +4,7 @@ import watchLaterSlice from '../data/watchLaterSlice'
 import placeholder from '../assets/not-found-500X750.jpeg'
 import '../styles/movie.scss'
 
-const Movie = ({ movie, viewTrailer, closeCard }) => {
-
+const Movie = ({ movie, viewTrailer }) => {
     const state = useSelector((state) => state)
     const { starred, watchLater } = state
     const { starMovie, unstarMovie } = starredSlice.actions
@@ -25,7 +24,7 @@ const Movie = ({ movie, viewTrailer, closeCard }) => {
             <img src={(movie.poster_path) ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : placeholder} alt="Movie poster" />
             <h6 className="title">{movie.title}</h6>
             <div className="overlay"></div>
-            <div className='info_panel'>
+            <div className='info_panel' onClick={(e) => e.stopPropagation()}>
                 <button type="button" className="close" onClick={(e) => myClickHandler(e)} aria-label="Close">&times;</button>
                 <h6 className="title">{movie.title}</h6>
                 <div className="year">{movie.release_date?.substring(0, 4)}</div>

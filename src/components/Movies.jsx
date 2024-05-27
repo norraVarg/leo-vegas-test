@@ -10,7 +10,6 @@ const Movies = ({ movies, viewTrailer, closeCard }) => {
                         movie={movie}
                         key={movie.id}
                         viewTrailer={viewTrailer}
-                        closeCard={closeCard}
                     />
                 )
             })}

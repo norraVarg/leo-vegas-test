@@ -40,6 +40,7 @@ img {
   right: 0;
   bottom: 0;
   opacity: 0;
+  z-index: -1;
   -webkit-transition: opacity .4s ease-in-out;
   -moz-transition: opacity .4s ease-in-out;
   -ms-transition: opacity .4s ease-in-out;
@@ -118,6 +119,11 @@ img {
     font-size: 1.2rem;
   }
 
+  .overlay,
+  .info_panel {
+    z-index: 999;
+  }
+
   .overlay {
     opacity: 0.7;
   }
@@ -140,5 +146,76 @@ img {
 
   .close {
     display: block;
+  }
+}
+
+@media (min-width: 480px) {
+  .card {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+
+    .info_panel {
+      padding-top: 10%;
+    }
+
+    .overview {
+      font-size: 0.7rem;
+      height: 116px;
+      overflow-y: auto;
+      margin-top: 8px;
+    }
+
+    .title {
+      font-size: 1rem;
+    }
+
+    .year {
+      margin: 3px 0;
+    }
+
+    .button-group {
+      margin-top: 20px;
+      gap: 8px;
+
+      button {
+        font-size: 0.6rem;
+        height: 24px;
+        margin: 0;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+
+      img {
+        border: 2px solid #fff;
+      }
+
+      .title {
+        visibility: hidden;
+      }
+
+      .overlay,
+      .info_panel {
+        z-index: 999;
+      }
+
+      .overlay {
+        opacity: 0.7;
+
+      }
+
+      .info_panel {
+        opacity: 1;
+
+        .title {
+          visibility: visible;
+          margin: 0;
+        }
+      }
+    }
   }
 }
