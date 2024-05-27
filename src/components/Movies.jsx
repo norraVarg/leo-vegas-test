@@ -1,14 +1,13 @@
 import Movie from './Movie'
-import '../styles/movies.scss'
 
 const Movies = ({ movies, viewTrailer, closeCard }) => {
 
     return (
-        <div data-testid="movies">
+        <div data-testid="movies" className='responsive-grid'>
             {movies.movies.results?.map((movie) => {
                 return (
-                    <Movie 
-                        movie={movie} 
+                    <Movie
+                        movie={movie}
                         key={movie.id}
                         viewTrailer={viewTrailer}
                         closeCard={closeCard}
