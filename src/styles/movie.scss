@@ -66,8 +66,6 @@ img {
   }
 }
 
-
-
 .button-group {
   display: flex;
   flex-direction: column;
@@ -117,6 +115,7 @@ img {
   right: 0;
   bottom: 0;
   z-index: 999;
+  min-width: 200px;
 
   .title {
     display: none;
