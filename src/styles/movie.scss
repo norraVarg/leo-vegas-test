@@ -1,0 +1,144 @@
+img {
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  background: transparent;
+  border: none;
+
+  .title {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    z-index: 999;
+    display: block;
+    width: 75px;
+    height: 60px;
+    font-size: 50px;
+    line-height: 20px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    display: none;
+  }
+}
+
+.overlay,
+.info_panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: opacity .4s ease-in-out;
+  -moz-transition: opacity .4s ease-in-out;
+  -ms-transition: opacity .4s ease-in-out;
+  -o-transition: opacity .4s ease-in-out;
+  transition: opacity .4s ease-in-out;
+}
+
+.overlay {
+  background-color: #111;
+}
+
+.info_panel {
+  padding: 20% 5% 0;
+  color: #fff;
+
+  .bi-star:hover {
+    color: #e50914;
+  }
+
+  .bi-star-fill {
+    margin: 0 5px;
+    color: #e50914;
+  }
+}
+
+
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  .btn-watch-later,
+  .btn-view-trailer {
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .btn-star {
+    width: 50px;
+    color: #e50914;
+    cursor: pointer;
+  }
+
+  .btn-watch-later {
+    &.blue {
+      color: #fff;
+      background-color: #1CB5E0;
+      border: #1CB5E0;
+      font-size: 1.2rem;
+    }
+
+    &:hover {
+      color: #fff;
+      background: #1CB5E0;
+      border-color: #1CB5E0;
+    }
+  }
+}
+
+.card.opened {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+
+  .title {
+    display: none;
+  }
+
+  .year {
+    padding: 0 0 10px 0;
+    font-size: 1.2rem;
+  }
+
+  .overlay {
+    opacity: 0.7;
+  }
+
+  .info_panel {
+    opacity: 1;
+
+    .title {
+      display: block;
+      font-size: 1.5rem;
+    }
+
+    .overview {
+      height: 200px;
+      overflow-y: auto;
+      font-size: 1rem;
+      line-height: 115%;
+    }
+  }
+
+  .close {
+    display: block;
+  }
+}
