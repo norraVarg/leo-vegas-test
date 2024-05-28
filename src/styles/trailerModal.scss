@@ -18,6 +18,10 @@
 
 .no-trailer {
   padding: 30px;
+  max-width: 500px;
+  min-width: 320px;
+  margin: auto auto;
+  background-color: white;
 
   &-message {
     color: black;
