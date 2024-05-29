@@ -16,17 +16,23 @@ import { usePrevious } from './hooks/usePrevious'
 const App = () => {
   const state = useSelector((state) => state)
   const { movies } = state
-  const dispatch = useDispatch()
-  const [searchParams, setSearchParams] = useSearchParams()
-  const search = searchParams.get('search')
+
   const [videoKey, setVideoKey] = useState(null)
   const [isOpen, setOpen] = useState(false)
-  const closeModal = () => setOpen(false)
   const { anchorRef, fetchMore } = useInfiniteScroll(movies.fetchStatus)
-  const noMoreMovies = movies.movies.page >= movies.movies.total_pages
+  const dispatch = useDispatch()
+
+  const [searchParams, setSearchParams] = useSearchParams()
+  const search = searchParams.get('search')
   const prevSearch = usePrevious(search)
 
+  const hasMoreMovies = (movies.movies.page === 0 && movies.movies.total_pages === 0) || (movies.movies.page < movies.movies.total_pages)
+
+  const closeModal = () => setOpen(false)
+
   const searchMovies = (query) => {
+    window.scrollTo(0, 0)
+
     if (query !== '') {
       setSearchParams(createSearchParams({ search: query }))
     } else {
@@ -52,36 +58,30 @@ const App = () => {
       setVideoKey(null)
     }
   }
-  console.log(fetchMore, search, prevSearch, noMoreMovies)
-  useEffect(() => {
-    if (search !== null) {
-      dispatch(fetchMoviesPageOne(`${ENDPOINT_SEARCH}&query=${search}&page=1`))
-      return
-    }
-
-    if (search === null) {
-      dispatch(fetchMoviesPageOne(`${ENDPOINT_DISCOVER}&page=1`))
-      return
-    }
-  }, [search, dispatch])
 
   useEffect(() => {
-    if (noMoreMovies) {
-      return
-    }
-
-    if (fetchMore) {
-      if (search === null) {
-        dispatch(fetchMovies(`${ENDPOINT_DISCOVER}&page=${movies.movies.page + 1}`))
-        return
+    // fetch movies for infinite scroll
+    if (prevSearch === search) {
+      if (hasMoreMovies && fetchMore) {
+        if (search !== null) {
+          dispatch(fetchMovies(`${ENDPOINT_SEARCH}&query=${search}&page=${movies.movies.page + 1}`))
+        } else {
+          dispatch(fetchMovies(`${ENDPOINT_DISCOVER}&page=${movies.movies.page + 1}`))
+        }
       }
+      return
+    }
 
+    // fetch first page when switching between search and discover
+    if (prevSearch !== search) {
       if (search !== null) {
-        dispatch(fetchMovies(`${ENDPOINT_SEARCH}&query=${search}&page=${movies.movies.page + 1}`))
-        return
+        dispatch(fetchMoviesPageOne(`${ENDPOINT_SEARCH}&query=${search}&page=1`))
+      } else {
+        dispatch(fetchMoviesPageOne(`${ENDPOINT_DISCOVER}&page=1`))
       }
+      return
     }
-  }, [fetchMore, dispatch, search, noMoreMovies])
+  }, [search, prevSearch, fetchMore, hasMoreMovies, movies.movies.page, dispatch])
 
   return (
     <div className="App">
@@ -96,7 +96,7 @@ const App = () => {
               viewTrailer={viewTrailer}
               anchorRef={anchorRef}
               fetchMore={fetchMore}
-              noMoreMovies={noMoreMovies}
+              hasMoreMovies={hasMoreMovies}
             />
           } />
           <Route path="/starred" element={<Starred viewTrailer={viewTrailer} />} />

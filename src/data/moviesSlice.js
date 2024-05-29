@@ -27,7 +27,7 @@ const moviesSlice = createSlice({
             state.movies = {
                 results: [...state.movies.results, ...results],
                 page,
-                total_pages
+                total_pages,
             }
             state.fetchStatus = 'success'
         }).addCase(fetchMovies.pending, (state) => {

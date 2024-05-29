@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export const useInfiniteScroll = (status) => {
   const [fetchMore, setFetchMore] = useState(false)

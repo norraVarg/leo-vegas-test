@@ -7,7 +7,7 @@ const TrailerModal = ({ videoKey, closeModal }) => {
       closeModal()
     }
   }
-  console.log(videoKey)
+
   return (
     <div id='trailerModal' className='trailer-modal'>
       {videoKey ? (
