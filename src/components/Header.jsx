@@ -5,6 +5,7 @@ import '../styles/header.scss'
 
 const Header = ({ searchMovies, search }) => {
   const { starredMovies } = useSelector((state) => state.starred)
+  const { watchLaterMovies } = useSelector((state) => state.watchLater)
   const [value, setValue] = useState(search || '')
 
   const onChangeHandler = (e) => {
@@ -30,7 +31,14 @@ const Header = ({ searchMovies, search }) => {
           )}
         </NavLink>
         <NavLink to="/watch-later" className="nav-fav">
-          watch later
+          {watchLaterMovies.length > 0 ? (
+            <>
+              <i className="bi bi-heart-fill bi-heart-fill-white" />
+              <sup className="watch-later-number">{watchLaterMovies.length}</sup>
+            </>
+          ) : (
+            <i className="bi bi-heart" />
+          )}
         </NavLink>
       </nav>
 
