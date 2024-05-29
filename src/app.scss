@@ -1,7 +1,9 @@
+@import './styles/colors.scss';
+
 #root {
   height: 100%;
   min-height: 850px;
-  background: linear-gradient(0deg, #1CB5E0 20%, #050b45 100%) no-repeat;
+  background: linear-gradient(0deg, $blue_1 20%, $blue_2 100%) no-repeat;
 }
 
 :root,
@@ -20,19 +22,19 @@
 
   @keyframes anvil {
     0% {
-      box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+      box-shadow: 0 0 0 $black_3;
       opacity: 0;
       transform: scale(1) translateY(0px);
     }
 
     1% {
-      box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+      box-shadow: 0 0 0 $black_3;
       opacity: 0;
       transform: scale(0.96) translateY(10px);
     }
 
     100% {
-      box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+      box-shadow: 0 0 500px $black_3;
       opacity: 1;
       transform: scale(1) translateY(0px);
     }
@@ -41,16 +43,14 @@
   .container {
     padding-top: 100px;
     padding-bottom: 32px;
-    color: #fff;
+    color: $white_1;
 
     a {
-      color: #1CB5E0;
+      color: $blue_1;
       text-decoration: none;
     }
 
   }
-
-
 
   button {
     display: inline-flex;
@@ -66,7 +66,7 @@
       margin-top: 50px;
       width: fit-content;
       padding: 0 20px;
-      background: red;
+      background: $red_1;
       border: none;
     }
   }

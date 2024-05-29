@@ -1,7 +1,9 @@
+@import './colors';
+
 .trailer-modal {
   display: flex;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: $black_2;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,10 +23,10 @@
   max-width: 500px;
   min-width: 320px;
   margin: auto auto;
-  background-color: white;
+  background-color: $white_1;
 
   &-message {
-    color: black;
+    color: $black_1;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.2;

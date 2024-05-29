@@ -1,11 +1,13 @@
+@import './colors';
+
 header {
   position: fixed;
   z-index: 999;
   width: 100%;
   height: 3rem;
   min-height: 50px;
-  color: #fff;
-  background: rgba(0, 8, 81, 0.8);
+  color: $white_1;
+  background: $blue_3;
   border: 1px solid transparent;
   border-radius: 0;
 
@@ -24,11 +26,11 @@ header {
     }
 
     .bi {
-      color: #fff;
+      color: $white_1;
     }
 
     .search-link {
-      color: #111111;
+      color: $black_4;
       text-decoration: none;
     }
   }
@@ -49,11 +51,11 @@ header {
       &.nav-fav {
         position: relative;
         font-size: 0.8rem;
-        color: #ccc;
+        color: $white_2;
         text-decoration: none;
 
         &:hover {
-          color: #fff;
+          color: $white_1;
         }
       }
     }
@@ -62,11 +64,11 @@ header {
   i {
     margin: 0.5rem;
     font-size: 1.2rem;
-    color: #fff;
+    color: $white_1;
     vertical-align: middle;
 
     &:hover {
-      color: #fff;
+      color: $white_1;
     }
 
     +.star-number {
@@ -80,8 +82,8 @@ header {
       height: 20px;
       font-size: 0.65rem;
       font-weight: 600;
-      color: #fff;
-      background: red;
+      color: $white_1;
+      background: $red_1;
       border-radius: 50%;
     }
 
@@ -89,43 +91,43 @@ header {
       float: left;
       margin-left: 1.5rem;
       font-size: 1.3rem;
-      color: #e9ecef;
+      color: $white_3;
     }
 
     &.bi-star-fill {
-      color: #e50914;
+      color: $red_1;
       animation: blink-red .4s;
 
       &.bi-star-fill-white {
-        color: #fff;
+        color: $white_1;
       }
     }
 
     &.bi-heart-fill {
-      color: #1CB5E0;
+      color: $blue_1;
       animation: blink-blue .4s;
 
       &.bi-heart-fill-white {
-        color: #fff;
+        color: $white_1;
       }
     }
 
     @keyframes blink-red {
       50% {
-        color: red;
+        color: $red_1;
       }
     }
 
     @keyframes blink-blue {
       50% {
-        color: #1CB5E0;
+        color: $blue_1;
       }
     }
   }
 
   .selected {
     i {
-      color: #fff;
+      color: $white_1;
     }
   }
 
@@ -143,6 +145,6 @@ header {
   border-radius: 50%;
   font-size: 0.65rem;
   font-weight: 600;
-  background-color: #1CB5E0;
-  color: #fff;
+  background-color: $blue_1;
+  color: $white_1;
 }
