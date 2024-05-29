@@ -23,6 +23,7 @@ header {
     input {
       height: 25px;
       font-size: 0.8rem;
+      padding-right: 24px;
     }
 
     .bi {
@@ -30,8 +31,17 @@ header {
     }
 
     .search-link {
+      position: relative;
       color: $black_4;
       text-decoration: none;
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      top: -10px;
+      right: -6px;
+      color: $black_4;
+      font-size: 0.9rem;
     }
   }
 

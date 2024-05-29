@@ -44,7 +44,7 @@ const Header = ({ searchMovies, search }) => {
 
       <div className="input-group rounded">
         <Link to="/" className="search-link" onClick={scrollToTop}>
-          <input type="search" data-testid="search-movies"
+          <input data-testid="search-movies"
             value={value}
             onChange={onChangeHandler}
             className="form-control rounded"
@@ -52,6 +52,7 @@ const Header = ({ searchMovies, search }) => {
             aria-label="Search movies"
             aria-describedby="search-addon"
           />
+          {value.length > 0 && (<i className="bi bi-x clear-search-btn" onClick={() => { setValue('') }} />)}
         </Link>
       </div>
     </header>
