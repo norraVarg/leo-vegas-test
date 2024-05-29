@@ -87,7 +87,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header searchMovies={searchMovies} />
+      <Header searchMovies={searchMovies} search={search} />
 
       <div className="container">
         {isOpen && (<TrailerModal videoKey={videoKey} closeModal={closeModal} />)}

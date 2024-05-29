@@ -1,9 +1,16 @@
 import { Link, NavLink } from "react-router-dom"
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
 import '../styles/header.scss'
 
-const Header = ({ searchMovies }) => {
+const Header = ({ searchMovies, search }) => {
   const { starredMovies } = useSelector((state) => state.starred)
+  const [value, setValue] = useState(search || '')
+
+  const onChangeHandler = (e) => {
+    setValue(e.target.value || '')
+    searchMovies(e.target.value)
+  }
 
   return (
     <header>
@@ -30,7 +37,8 @@ const Header = ({ searchMovies }) => {
       <div className="input-group rounded">
         <Link to="/" className="search-link" onClick={() => window.scrollTo(0, 0)}>
           <input type="search" data-testid="search-movies"
-            onKeyUp={(e) => searchMovies(e.target.value)}
+            value={value}
+            onChange={onChangeHandler}
             className="form-control rounded"
             placeholder="Search movies..."
             aria-label="Search movies"
