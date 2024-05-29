@@ -30,7 +30,7 @@ const Header = ({ searchMovies, search }) => {
             <i className="bi bi-star" />
           )}
         </NavLink>
-        <NavLink to="/watch-later" className="nav-fav">
+        <NavLink to="/watch-later" data-testid="nav-watch-later" className="nav-fav">
           {watchLaterMovies.length > 0 ? (
             <>
               <i className="bi bi-heart-fill bi-heart-fill-white" />
