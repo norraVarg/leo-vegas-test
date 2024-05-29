@@ -1,7 +1,7 @@
 import YouTubePlayer from './YoutubePlayer'
 import '../styles/trailerModal.scss'
 
-const TrailerModal = ({ videoKey, closeModal }) => {
+export const TrailerModal = ({ videoKey, closeModal }) => {
   window.onclick = function (event) {
     if (event.target.id === 'trailerModal') {
       closeModal()
@@ -24,5 +24,3 @@ const TrailerModal = ({ videoKey, closeModal }) => {
     </div>
   )
 }
-
-export default TrailerModal
