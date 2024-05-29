@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import starredSlice from '../data/starredSlice'
 import Movie from './Movie'
+import { useEffect } from 'react'
 
 const Starred = ({ viewTrailer }) => {
 
@@ -9,6 +10,12 @@ const Starred = ({ viewTrailer }) => {
   const { starred } = state
   const { clearAllStarred } = starredSlice.actions
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (starred.starredMovies.length === 0) {
+      window.scrollTo(0, 0)
+    }
+  }, [starred])
 
   return (
     <div className="starred" data-testid="starred">

@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import watchLaterSlice from '../data/watchLaterSlice'
 import Movie from './Movie'
@@ -9,6 +10,12 @@ const WatchLater = ({ viewTrailer }) => {
   const { watchLater } = state
   const { remveAllWatchLater } = watchLaterSlice.actions
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (watchLater.watchLaterMovies.length === 0) {
+      window.scrollTo(0, 0)
+    }
+  }, [watchLater])
 
   return (
     <div className="starred" data-testid="watch-later-div">
