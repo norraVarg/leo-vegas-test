@@ -19,13 +19,13 @@ const Movie = ({ movie, viewTrailer }) => {
     }
 
     return (
-        <div className="card" onClick={(e) => e.currentTarget.classList.add('opened')} >
+        <article className="card" onClick={(e) => e.currentTarget.classList.add('opened')} >
             <img src={(movie.poster_path) ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : placeholder} alt="Movie poster" />
-            <h6 className="title">{movie.title}</h6>
+            <h3 className="title">{movie.title}</h3>
             <div className="overlay"></div>
             <div className='info_panel' onClick={(e) => e.stopPropagation()}>
                 <button type="button" className="close" onClick={(e) => myClickHandler(e)} aria-label="Close">&times;</button>
-                <h6 className="title">{movie.title}</h6>
+                <h3 className="title">{movie.title}</h3>
                 <div className="year">{movie.release_date?.substring(0, 4)}</div>
                 <div className="overview">{movie.overview}</div>
                 <div className='button-group'>
@@ -60,7 +60,7 @@ const Movie = ({ movie, viewTrailer }) => {
                     <button type="button" className="btn btn-dark btn-view-trailer" onClick={() => viewTrailer(movie)}>View Trailer</button>
                 </div>
             </div>
-        </div >
+        </article >
     )
 }
 

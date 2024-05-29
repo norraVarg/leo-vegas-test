@@ -17,7 +17,7 @@ const WatchLater = ({ viewTrailer }) => {
   }, [watchLater])
 
   return (
-    <div className="starred" data-testid="watch-later-div">
+    <section className="starred" data-testid="watch-later-div">
       {watchLater.watchLaterMovies.length > 0 && (<div data-testid="watch-later-movies" className="watch-later-movies">
         <h6 className="header">Watch Later List</h6>
         <div className="responsive-grid">
@@ -38,7 +38,7 @@ const WatchLater = ({ viewTrailer }) => {
         <p>You have no movies saved to watch later.</p>
         <p>Go to <Link to='/'>Home</Link></p>
       </div>)}
-    </div>
+    </section>
   )
 }
 

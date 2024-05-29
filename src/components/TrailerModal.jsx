@@ -9,7 +9,7 @@ export const TrailerModal = ({ videoKey, closeModal }) => {
   }
 
   return (
-    <div id='trailerModal' className='trailer-modal'>
+    <dialog id='trailerModal' className='trailer-modal'>
       {videoKey ? (
         <div className='trailer-modal-content'>
           <YouTubePlayer
@@ -21,6 +21,6 @@ export const TrailerModal = ({ videoKey, closeModal }) => {
           <div className='no-trailer-message'>No trailer available. Try another movie</div>
         </div>
       )}
-    </div>
+    </dialog>
   )
 }
