@@ -5,7 +5,6 @@ import watchLaterSlice from '../data/watchLaterSlice'
 import Movie from './Movie'
 
 const WatchLater = ({ viewTrailer }) => {
-
   const state = useSelector((state) => state)
   const { watchLater } = state
   const { remveAllWatchLater } = watchLaterSlice.actions
@@ -13,7 +12,7 @@ const WatchLater = ({ viewTrailer }) => {
 
   useEffect(() => {
     if (watchLater.watchLaterMovies.length === 0) {
-      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     }
   }, [watchLater])
 

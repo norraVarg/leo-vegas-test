@@ -5,7 +5,6 @@ import Movie from './Movie'
 import { useEffect } from 'react'
 
 const Starred = ({ viewTrailer }) => {
-
   const state = useSelector((state) => state)
   const { starred } = state
   const { clearAllStarred } = starredSlice.actions
@@ -13,7 +12,7 @@ const Starred = ({ viewTrailer }) => {
 
   useEffect(() => {
     if (starred.starredMovies.length === 0) {
-      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     }
   }, [starred])
 

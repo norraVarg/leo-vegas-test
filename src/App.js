@@ -36,8 +36,6 @@ const App = () => {
   const closeModal = () => setOpen(false)
 
   const searchMovies = (query) => {
-    window.scrollTo(0, 0)
-
     if (query !== '') {
       setSearchParams(createSearchParams({ search: query }))
     } else {

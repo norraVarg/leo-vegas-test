@@ -15,12 +15,12 @@ const Header = ({ searchMovies, search }) => {
 
   return (
     <header>
-      <Link to="/" data-testid="home">
+      <Link to="/" data-testid="home" onClick={scrollToTop}>
         <i className="bi bi-film" />
       </Link>
 
       <nav>
-        <NavLink to="/starred" data-testid="nav-starred" className="nav-starred">
+        <NavLink to="/starred" data-testid="nav-starred" className="nav-starred" onClick={scrollToTop}>
           {starredMovies.length > 0 ? (
             <>
               <i className="bi bi-star-fill bi-star-fill-white" />
@@ -30,7 +30,7 @@ const Header = ({ searchMovies, search }) => {
             <i className="bi bi-star" />
           )}
         </NavLink>
-        <NavLink to="/watch-later" data-testid="nav-watch-later" className="nav-fav">
+        <NavLink to="/watch-later" data-testid="nav-watch-later" className="nav-fav" onClick={scrollToTop}>
           {watchLaterMovies.length > 0 ? (
             <>
               <i className="bi bi-heart-fill bi-heart-fill-white" />
@@ -43,7 +43,7 @@ const Header = ({ searchMovies, search }) => {
       </nav>
 
       <div className="input-group rounded">
-        <Link to="/" className="search-link" onClick={() => window.scrollTo(0, 0)}>
+        <Link to="/" className="search-link" onClick={scrollToTop}>
           <input type="search" data-testid="search-movies"
             value={value}
             onChange={onChangeHandler}
@@ -56,6 +56,10 @@ const Header = ({ searchMovies, search }) => {
       </div>
     </header>
   )
+}
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
 }
 
 export default Header
