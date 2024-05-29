@@ -12,12 +12,17 @@ Created with [Create React App](https://github.com/facebook/create-react-app).
   - line 56: Remove this line since at line 57 `setOpen(true)` is executed anyhow.
 - Starred.jsx
   - line 28: No need to use `<footer>` tag to wrap a button. [Ref](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
-
+- CSS
+  - Move component specific stylings to dedicated files to make it easier to reuse/relocate components in the future and easier for future maintaince.
+  - Better not nest stylings too much, especially for the default ones that will apply on multiple components.
+    - Reason: 1. Hard to overwrite default stylings for individual components when needed. 2. Hard to read for future maintainance.
+  - Suggest to adopt mobile-first approach instead of desktop-first.
+  - Suggest to create a file for colors to make it easier to modify them accross the entire application in the future.
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm install`
+### `npm install` (NOTE: node version 19)
 
 Install all dependencies
 
