@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, createSearchParams, useSearchParams } from "react-router-dom"
+import { Routes, Route, createSearchParams, useSearchParams, useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import 'reactjs-popup/dist/index.css'
 import { fetchMovies, fetchMoviesPageOne } from './data/moviesSlice'
@@ -18,10 +18,13 @@ const App = () => {
   const state = useSelector((state) => state)
   const { movies } = state
 
+  const dispatch = useDispatch()
   const [videoKey, setVideoKey] = useState(null)
   const [isOpen, setOpen] = useState(false)
-  const { anchorRef, fetchMore } = useInfiniteScroll(movies.fetchStatus)
-  const dispatch = useDispatch()
+
+  const location = useLocation()
+  const infiniteScrollEnabled = location.pathname === '/'
+  const { anchorRef, fetchMore } = useInfiniteScroll(movies.fetchStatus, infiniteScrollEnabled)
 
   const [searchParams, setSearchParams] = useSearchParams()
   const search = searchParams.get('search')
