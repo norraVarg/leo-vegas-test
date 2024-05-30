@@ -4,7 +4,7 @@ React + Redux + RTK + Bootstrap application that fetches movies from [https://ww
 
 Created with [Create React App](https://github.com/facebook/create-react-app).
 
-## Code Review
+## Task-1: Code Review
 - constants.js
   - line 3 and line 4: Remove '/' between 'movie' and '?' to solve 404 issue for the GET request.
 - App.js
@@ -16,16 +16,17 @@ Created with [Create React App](https://github.com/facebook/create-react-app).
 - There are unused code that need some clean up.
 - Use Semantic HTML for better SEO.
 - CSS
-  - Move component specific stylings to dedicated files to make it easier to reuse/relocate components in the future and easier for future maintaince.
-  - Better not nest stylings too much, especially for the default ones that will apply on multiple components.
-    - Reason: 1. Hard to overwrite default stylings for individual components when needed. 2. Hard to read for future maintainance.
-  - Suggest to adopt mobile-first approach instead of desktop-first.
+  - Move component specific stylings to dedicated files to make it easier to reuse components or to modify components when needed.
+  - Better not to nest stylings too much, especially for the default ones that apply on multiple components.
+    - Reason: 1. Hard to overwrite them for individual components when needed. 2. Hard to read for future maintainance.
+  - Suggest to adopt mobile-first approach instead of desktop-first approach.
   - Suggest to create a colors file to make it easier to modify them accross the entire application in the future.
+## Task-2: git pull branch [task-2](https://github.com/norraVarg/leo-vegas-test/tree/task-2)
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm install` (NOTE: node version 19)
+### `npm install` (NOTE: use node version 19)
 
 Install all dependencies
 
