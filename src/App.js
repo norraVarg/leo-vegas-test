@@ -87,7 +87,7 @@ const App = () => {
   }, [debouncedSearch, prevSearch, fetchMore, hasMoreMovies, movies.movies.page, dispatch])
 
   return (
-    <div className="App">
+    <main className="App">
       <Header searchMovies={searchMovies} search={search} />
 
       <div className="container">
@@ -107,7 +107,7 @@ const App = () => {
           <Route path="*" element={<figure className="not-found">Page Not Found</figure>} />
         </Routes>
       </div>
-    </div>
+    </main>
   )
 }
 

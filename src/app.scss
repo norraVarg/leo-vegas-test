@@ -13,7 +13,13 @@
   .responsive-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 40px;
+    grid-gap: 32px;
+  }
+
+  @media (min-width: 480px) {
+    .responsive-grid {
+      grid-gap: 80px 32px;
+    }
   }
 
   .header {
