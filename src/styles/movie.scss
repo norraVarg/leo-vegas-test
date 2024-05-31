@@ -1,0 +1,248 @@
+@import './colors';
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  position: relative;
+  color: $white_1;
+  text-align: center;
+  background: transparent;
+  border: none;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .title {
+    position: relative;
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    z-index: 999;
+    display: block;
+    width: 75px;
+    height: 60px;
+    font-size: 50px;
+    line-height: 20px;
+    color: $white_1;
+    background: transparent;
+    border: none;
+    display: none;
+  }
+}
+
+.overlay,
+.info_panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity .4s ease-in-out;
+  -moz-transition: opacity .4s ease-in-out;
+  -ms-transition: opacity .4s ease-in-out;
+  -o-transition: opacity .4s ease-in-out;
+  transition: opacity .4s ease-in-out;
+}
+
+.overlay {
+  background-color: $black_4;
+}
+
+.info_panel {
+  padding: 20% 5% 0;
+  color: $white_1;
+
+  .bi-star:hover {
+    color: $red_1;
+  }
+
+  .bi-star-fill {
+    margin: 0 5px;
+    color: $red_1;
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  .btn-watch-later,
+  .btn-view-trailer {
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .btn-star {
+    width: 50px;
+    color: $red_1;
+    cursor: pointer;
+  }
+
+  .btn-watch-later {
+    &.blue {
+      color: $white_1;
+      background-color: $blue_1;
+      border: $blue_1;
+      font-size: 1.2rem;
+    }
+
+    &:hover {
+      color: $white_1;
+      background: $blue_1;
+      border-color: $blue_1;
+    }
+  }
+
+  .btn-view-trailer {
+    &:hover {
+      color: $white_1;
+      background-color: $blue_1;
+      border: $blue_1;
+    }
+  }
+}
+
+.no-more-movies {
+  margin-top: 24px;
+}
+
+.card.opened {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  min-width: 200px;
+
+  .title {
+    display: none;
+  }
+
+  .year {
+    padding: 0 0 10px 0;
+    font-size: 1.2rem;
+  }
+
+  .overlay,
+  .info_panel {
+    z-index: 999;
+  }
+
+  .overlay {
+    opacity: 0.7;
+  }
+
+  .info_panel {
+    opacity: 1;
+
+    .title {
+      display: block;
+      font-size: 1.5rem;
+    }
+
+    .overview {
+      height: 200px;
+      overflow-y: auto;
+      font-size: 1rem;
+      line-height: 115%;
+    }
+  }
+
+  .close {
+    display: block;
+  }
+}
+
+@media (min-width: 480px) {
+  .card {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+
+    &::after {
+      content: none;
+    }
+
+    .info_panel {
+      padding-top: 10%;
+
+      .title {
+        display: none;
+      }
+    }
+
+    .overview {
+      font-size: 0.7rem;
+      height: fit-content;
+      max-height: 128px;
+      overflow-y: auto;
+      margin-top: 8px;
+    }
+
+    .title {
+      position: absolute;
+      width: 100%;
+      font-size: 0.85rem;
+    }
+
+    .year {
+      margin: 3px 0;
+    }
+
+    .button-group {
+      margin-top: 8px;
+      gap: 8px;
+
+      button {
+        font-size: 0.6rem;
+        height: 24px;
+        margin: 0;
+      }
+    }
+
+    .card-content {
+      position: relative;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+
+      img {
+        border: 2px solid $white_1;
+      }
+
+      .overlay,
+      .info_panel {
+        z-index: 999;
+      }
+
+      .overlay {
+        opacity: 0.7;
+      }
+
+      .info_panel {
+        opacity: 1;
+      }
+    }
+  }
+}

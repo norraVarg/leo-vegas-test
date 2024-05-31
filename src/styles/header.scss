@@ -1,113 +1,160 @@
+@import './colors';
+
 header {
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-    height: 3rem;
-    min-height: 50px;
-    color: #fff;
-    background: rgba(0, 8, 81, 0.8);
-    border: 1px solid transparent;
-    border-radius: 0;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 3rem;
+  min-height: 50px;
+  color: $white_1;
+  background: $blue_3;
+  border: 1px solid transparent;
+  border-radius: 0;
 
-    .input-group {
-      float: right;
-      width: 200px;
-      margin: 0.7rem 0 0;
+  .input-group {
+    float: right;
+    width: 200px;
+    margin: 0.7rem 0 0;
 
-      @media (max-width: 720px) {
-        width: 150px;
-      }      
-
-      input {
-        height: 25px;
-        font-size: 0.8rem;
-      }
-
-      .bi {
-        color: #fff;
-      }
-
-      .search-link {
-        color: #111111;
-        text-decoration: none;
-      }
+    @media (max-width: 720px) {
+      width: 150px;
     }
 
-    nav {
+    input {
+      height: 25px;
+      font-size: 0.8rem;
+      padding-right: 24px;
+    }
+
+    .bi {
+      color: $white_1;
+    }
+
+    .search-link {
       position: relative;
-      float: right;
-      margin: 0.5rem 1rem 0;
-
-      a {
-        display: inline-block;
-        margin: 0 0.2rem 0;
-
-        &.nav-fav {
-          font-size: 0.8rem;
-          color: #ccc;          
-          text-decoration: none;
-
-          &:hover {
-            color: #fff;
-          }
-        }
-      }
+      color: $black_4;
+      text-decoration: none;
     }
 
-    i {
-      margin: 0.5rem;
-      font-size: 1.2rem;
-      color: #fff;
-    
-      &:hover {
-        color: #fff;
-      }
-
-      + .star-number {
-        position: absolute;
-        top: 1rem;
-        right: 6.1rem;
-        padding: 0.5rem 0.3rem;
-        font-size: 0.65rem;
-        font-weight: 600;
-        color: #fff;
-        background: red;
-        border-radius: 50%;
-      }     
-      
-      &.bi-film {
-        float: left;
-        margin-left: 1.5rem;
-        font-size: 1.3rem;
-        color: #e9ecef;
-      }
-
-      &.bi-search {
-
-      }
-
-      &.bi-star-fill,
-      &.bi-heart-fill{
-        color: #e50914;
-        animation: blink .4s;
-
-        &.bi-star-fill-white,
-        &.bi-heart-fill-white {
-          color: #fff;
-        }
-      }
-
-      @keyframes blink{
-        50% {
-          color: red;
-        }
-      }  
+    .clear-search-btn {
+      position: absolute;
+      top: -10px;
+      right: -6px;
+      color: $black_4;
+      font-size: 0.9rem;
     }
-
-    .selected {
-      i {
-        color: #fff;
-      }
-    }    
-    
   }
+
+  nav {
+    position: relative;
+    float: right;
+    margin: 0.5rem 1rem 0;
+
+    a {
+      display: inline-block;
+      margin: 0 0.2rem 0;
+
+      &.nav-starred {
+        position: relative;
+      }
+
+      &.nav-fav {
+        position: relative;
+        font-size: 0.8rem;
+        color: $white_2;
+        text-decoration: none;
+
+        &:hover {
+          color: $white_1;
+        }
+      }
+    }
+  }
+
+  i {
+    margin: 0.5rem;
+    font-size: 1.2rem;
+    color: $white_1;
+    vertical-align: middle;
+
+    &:hover {
+      color: $white_1;
+    }
+
+    +.star-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 24px;
+      left: -8px;
+      width: 20px;
+      height: 20px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: $white_1;
+      background: $red_1;
+      border-radius: 50%;
+    }
+
+    &.bi-film {
+      float: left;
+      margin-left: 1.5rem;
+      font-size: 1.3rem;
+      color: $white_3;
+    }
+
+    &.bi-star-fill {
+      color: $red_1;
+      animation: blink-red .4s;
+
+      &.bi-star-fill-white {
+        color: $white_1;
+      }
+    }
+
+    &.bi-heart-fill {
+      color: $blue_1;
+      animation: blink-blue .4s;
+
+      &.bi-heart-fill-white {
+        color: $white_1;
+      }
+    }
+
+    @keyframes blink-red {
+      50% {
+        color: $red_1;
+      }
+    }
+
+    @keyframes blink-blue {
+      50% {
+        color: $blue_1;
+      }
+    }
+  }
+
+  .selected {
+    i {
+      color: $white_1;
+    }
+  }
+
+}
+
+.watch-later-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 24px;
+  left: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  font-weight: 600;
+  background-color: $blue_1;
+  color: $white_1;
+}

@@ -2,10 +2,14 @@ import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithProviders } from "./test/utils"
 import App from './App'
+import intersectionObserverMock from './test/intersectionObserverMock'
+
+window.IntersectionObserver = intersectionObserverMock
+window.scrollTo = jest.fn()
 
 it('renders watch later link', () => {
   renderWithProviders(<App />)
-  const linkElement = screen.getByText(/watch later/i)
+  const linkElement = screen.getByTestId('nav-watch-later')
   expect(linkElement).toBeInTheDocument()
 })
 
@@ -22,20 +26,20 @@ it('search for movies', async () => {
   })
 })
 
-it('renders watch later component', async() => {
+it('renders watch later component', async () => {
   renderWithProviders(<App />)
   const user = userEvent.setup()
-  await user.click(screen.getByText(/watch later/i))
+  await user.click(screen.getByTestId('nav-watch-later'))
   expect(screen.getByText(/You have no movies saved to watch later/i)).toBeInTheDocument()
 })
 
 
-it('renders starred component', async() => {
+it('renders starred component', async () => {
   renderWithProviders(<App />)
   const user = userEvent.setup()
   await user.click(screen.getByTestId('nav-starred'))
   expect(screen.getByText(/There are no starred movies/i)).toBeInTheDocument()
   await waitFor(() => {
     expect(screen.getByTestId('starred')).toBeInTheDocument()
-  })  
+  })
 })

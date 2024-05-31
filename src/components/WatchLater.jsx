@@ -1,33 +1,36 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import watchLaterSlice from '../data/watchLaterSlice'
 import Movie from './Movie'
-import '../styles/starred.scss'
 
-const WatchLater = ({viewTrailer}) => {
+const WatchLater = ({ viewTrailer }) => {
+  const state = useSelector((state) => state)
+  const { watchLater } = state
+  const { remveAllWatchLater } = watchLaterSlice.actions
+  const dispatch = useDispatch()
 
-    const state = useSelector((state) => state)
-    const { watchLater } = state
-    const { remveAllWatchLater } = watchLaterSlice.actions
-    const dispatch = useDispatch()
+  useEffect(() => {
+    if (watchLater.watchLaterMovies.length === 0) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    }
+  }, [watchLater])
 
   return (
-    <div className="starred" data-testid="watch-later-div">
-      {watchLater.watchLaterMovies.length > 0 && (<div data-testid="watch-later-movies" className="starred-movies">
+    <section className="starred" data-testid="watch-later-div">
+      {watchLater.watchLaterMovies.length > 0 && (<div data-testid="watch-later-movies" className="watch-later-movies">
         <h6 className="header">Watch Later List</h6>
-        <div className="row">
-        {watchLater.watchLaterMovies.map((movie) => (
-          <Movie 
-            movie={movie} 
-            key={movie.id}
-            viewTrailer={viewTrailer}
-          />
-        ))}
+        <div className="responsive-grid">
+          {watchLater.watchLaterMovies.map((movie) => (
+            <Movie
+              movie={movie}
+              key={movie.id}
+              viewTrailer={viewTrailer}
+            />
+          ))}
         </div>
 
-        <footer className="text-center">
-          <button className="btn btn-primary" onClick={() => dispatch(remveAllWatchLater())}>Empty list</button>
-        </footer>
+        <button className="btn btn-primary clear" onClick={() => dispatch(remveAllWatchLater())}>Empty list</button>
       </div>)}
 
       {watchLater.watchLaterMovies.length === 0 && (<div className="text-center empty-cart">
@@ -35,7 +38,7 @@ const WatchLater = ({viewTrailer}) => {
         <p>You have no movies saved to watch later.</p>
         <p>Go to <Link to='/'>Home</Link></p>
       </div>)}
-    </div>
+    </section>
   )
 }
 
